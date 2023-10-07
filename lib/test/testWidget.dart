@@ -13,17 +13,8 @@ import 'package:shared_preferences/shared_preferences.dart';
 import '../view/home.dart';
 
 void main() async {
-
-  testWidgets('', (tester) async {
-    await tester.runAsync(() async {
-      SharedPreferences.setMockInitialValues({});
-      EasyLocalization.logger.enableLevels ;
-
-      await EasyLocalization.ensureInitialized();
-
-      await tester.pumpAndSettle();
-    });
-  });
+  SharedPreferences.setMockInitialValues({});
+  await EasyLocalization.ensureInitialized();
 
   group(' Pages Widget Tests', () {
     testWidgets('Test MainHome Page UI', (WidgetTester tester) async {
