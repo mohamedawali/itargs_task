@@ -6,7 +6,6 @@ import 'package:itargs_task/constant/them.dart';
 
 import 'translation/codegen_loader.g.dart';
 import 'viewModel/MoreViewModel/more_cubit.dart';
-import 'viewModel/moreViewModel.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();

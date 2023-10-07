@@ -42,7 +42,7 @@ dependencies:
   path_provider: ^2.1.1
   connectivity_plus: ^4.0.2
   flutter_bloc:
-
+  shared_preferences:
 
 dev_dependencies:
   flutter_test:

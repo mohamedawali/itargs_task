@@ -6,7 +6,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:itargs_task/translation/local_keys.g.dart';
 import 'package:itargs_task/viewModel/MoreViewModel/more_cubit.dart';
 
-import '../viewModel/moreViewModel.dart';
 
 class More extends StatefulWidget {
   const More({Key? key}) : super(key: key);
@@ -18,7 +17,6 @@ class More extends StatefulWidget {
 class _MoreState extends State<More> {
   bool selectedMode=false ;
   bool isDark=false ;
-  MoreViewModel moreViewModel = MoreViewModel();
   MoreCubit? moreCubit;
 
   @override

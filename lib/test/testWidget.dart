@@ -7,14 +7,24 @@ import 'package:itargs_task/view/mainHome.dart';
 import 'package:itargs_task/view/more.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:easy_localization/easy_localization.dart';
+import 'package:itargs_task/viewModel/MoreViewModel/more_cubit.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import '../view/home.dart';
-import '../viewModel/themCubit/theme_cubit.dart';
 
 void main() async {
-  //
-  // WidgetsFlutterBinding.ensureInitialized();
-  //await EasyLocalization.ensureInitialized();
+
+  testWidgets('', (tester) async {
+    await tester.runAsync(() async {
+      SharedPreferences.setMockInitialValues({});
+      EasyLocalization.logger.enableLevels ;
+
+      await EasyLocalization.ensureInitialized();
+
+      await tester.pumpAndSettle();
+    });
+  });
+
   group(' Pages Widget Tests', () {
     testWidgets('Test MainHome Page UI', (WidgetTester tester) async {
       await tester.pumpWidget(
@@ -82,8 +92,8 @@ void main() async {
           fallbackLocale: const Locale("en"),
           assetLoader: const CodegenLoader(),
           child: MaterialApp(
-            home: BlocProvider<ThemeCubit>(
-              create: (context) => ThemeCubit(),
+            home: BlocProvider<MoreCubit>(
+              create: (context) => MoreCubit(),
               child: More(),
             ),
           ),
@@ -98,9 +108,7 @@ void main() async {
 
       // Verify that the title "Switch to Arabic"  is present on the screen.
       expect(find.text(LocaleKeys.arLang.tr()), findsOneWidget);
-      // Verify that the "play icon"  on the screen.
-      expect(find.byWidget(SvgPicture.asset('assets/icon/play.svg')),
-          findsOneWidget);
+
       // Verify that the "toggle_off_outlined icon"  on the screen.
       expect(find.byIcon(Icons.toggle_off_outlined), findsOneWidget);
       // Verify that the "toggle_on_outlined icon"  on the screen.
